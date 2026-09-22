@@ -27,10 +27,10 @@ with st.sidebar:
     st.markdown("### 🤖 Model Selection")
     # Updated to active Groq production models
     model_choice = st.selectbox(
-        "Choose Groq Model",
-        ["llama-3.1-8b-instant", "llama-3.3-70b-versatile"],
-        index=0
-    )
+    "Choose Groq Model",
+    ["openai/gpt-oss-20b", "openai/gpt-oss-120b"],
+    index=0
+)
     
     st.markdown("---")
     st.markdown("### About")
