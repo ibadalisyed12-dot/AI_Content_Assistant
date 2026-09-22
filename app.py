@@ -26,7 +26,7 @@ with st.sidebar:
     # Popular free production model on Groq
     model_choice = st.selectbox(
     "Choose Groq Model",
-    ["llama-3.1-8b-instant", "llama-3.3-70b-versatile"],
+    ["openai/gpt-oss-20b", "openai/gpt-oss-120b"],
     index=0
 )
     
