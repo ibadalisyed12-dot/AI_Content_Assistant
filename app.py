@@ -5,7 +5,7 @@ from groq import Groq
 # BACKEND CONFIGURATION
 # ==========================================
 # Replace the string below with your actual Groq API key
-GROQ_API_KEY = "gsk_your_actual_groq_api_key_here"
+GROQ_API_KEY = "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"
 
 # Page Configuration
 st.set_page_config(
@@ -78,7 +78,7 @@ if submit_button:
     else:
         try:
             # Initialize Groq Client using backend key
-            client = Groq(api_key="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")
+            client = Groq(api_key=GROQ_API_KEY)
             
             # Construct a detailed prompt for the LLM
             system_prompt = (
