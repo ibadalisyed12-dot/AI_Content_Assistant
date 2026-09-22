@@ -1,6 +1,12 @@
 import streamlit as st
 from groq import Groq
 
+# ==========================================
+# BACKEND CONFIGURATION
+# ==========================================
+# Replace the string below with your actual Groq API key
+GROQ_API_KEY = "gsk_your_actual_groq_api_key_here"
+
 # Page Configuration
 st.set_page_config(
     page_title="AI Content Assistant",
@@ -12,23 +18,19 @@ st.set_page_config(
 st.title("✨ AI Content Assistant")
 st.markdown("Generate engaging social media captions, tailored copy, and targeted hashtags instantly using **Groq**.")
 
-# Sidebar Configuration for API Key and Model
+# Sidebar Configuration for Model Selection (API key removed from frontend)
 with st.sidebar:
     st.header("🔑 Configuration")
-    api_key_input = st.text_input(
-        "Enter Groq API Key",
-        type="password",
-        help="Get your free key from https://console.groq.com/keys"
-    )
+    st.success("API Key loaded securely from backend.")
     
     st.markdown("---")
     st.markdown("### 🤖 Model Selection")
-    # Popular free production model on Groq
+    # Updated to active Groq production models
     model_choice = st.selectbox(
-    "Choose Groq Model",
-    ["openai/gpt-oss-20b", "openai/gpt-oss-120b"],
-    index=0
-)
+        "Choose Groq Model",
+        ["llama-3.1-8b-instant", "llama-3.3-70b-versatile"],
+        index=0
+    )
     
     st.markdown("---")
     st.markdown("### About")
@@ -69,15 +71,14 @@ with st.form("content_form"):
 
 # Action on Submit
 if submit_button:
-    # Validate API key
-    if not api_key_input:
-        st.error("⚠️ Please enter your Groq API Key in the sidebar to proceed.")
+    if not GROQ_API_KEY or GROQ_API_KEY == "gsk_your_actual_groq_api_key_here":
+        st.error("⚠️ Please update the `GROQ_API_KEY` variable in the code with your actual Groq API key.")
     elif not topic.strip():
         st.warning("⚠️ Please provide a topic or core message for the post.")
     else:
         try:
-            # Initialize Groq Client
-            client = Groq(api_key=api_key_input)
+            # Initialize Groq Client using backend key
+            client = Groq(api_key="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")
             
             # Construct a detailed prompt for the LLM
             system_prompt = (
